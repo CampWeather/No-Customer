@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://cnjqiv5454cwl"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_4kxuq"]
+size = Vector3(30, 0.2, 30)
+
+[node name="Node3D" type="Node3D" unique_id=221139962]
+
+[node name="Floor" type="CSGMesh3D" parent="." unique_id=81653637]
+use_collision = true
+mesh = SubResource("BoxMesh_4kxuq")
+
+[node name="kopdes layout" type="CSGCombiner3D" parent="." unique_id=762160399]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="kopdes layout" unique_id=1336337509]
+transform = Transform3D(0.19999999, 0, 0, 0, 3.6724627, 0, 0, 0, 7.801017, -11.392351, 0.94991887, -4.10405)
+use_collision = true
+size = Vector3(1, 0.49414063, 2.2861824)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="kopdes layout" unique_id=1096065098]
+transform = Transform3D(0.19999999, 0, 0, 0, 3.6724627, 0, 0, 0, 7.801017, 11.734449, 0.94991887, -4.1003895)
+use_collision = true
+size = Vector3(1, 0.49414063, 2.2978182)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="kopdes layout" unique_id=129951944]
+transform = Transform3D(5.78491e-05, 0, 7.8010163, 0, 3.6724627, 0, -0.19999997, 0, 0.0022563338, 0.17850028, 0.94991887, -13.099163)
+use_collision = true
+size = Vector3(1, 0.49414063, 2.9902344)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="kopdes layout" unique_id=1256418391]
+transform = Transform3D(5.78491e-05, 0, 7.8010163, 0, 3.6724627, 0, -0.19999997, 0, 0.0022563338, 0.17850028, 0.94991887, 4.5599184)
+use_collision = true
+size = Vector3(1, 0.49414063, 2.9902344)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="kopdes layout" unique_id=892980727]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.731013, 0.8286934, 4.4698925)
+operation = 2
+size = Vector3(1.6866455, 1.4727173, 1)
+
+[node name="Pepohonan" type="CSGCombiner3D" parent="." unique_id=1600125462]
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Pepohonan" unique_id=1907100007]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.313812, 1.6531572, 8.510199)
+radius = 0.229
+height = 3.1877441
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Pepohonan" unique_id=859034661]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.020067, 1.6531572, 10.42682)
+radius = 0.229
+height = 3.1877441
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="Pepohonan" unique_id=1384148778]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.390014, 1.6531572, -12.758381)
+radius = 0.229
+height = 3.1877441
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="Pepohonan" unique_id=368811465]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.052511, 1.6531572, 12.89458)
+radius = 0.229
+height = 3.1877441
