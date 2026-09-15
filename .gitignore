@@ -15,3 +15,23 @@ export_credentials.cfg
 .mono/
 data_*/
 mono_crash.*.json
+
+# Environment and editor files
+.env
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Blender backup files
+*.blend1
+*.blend2
+
+# Exported builds
+build/
+builds/
+export/
+exports/
+*.pck
+*.exe
+*.app
