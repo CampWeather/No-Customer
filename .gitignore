@@ -35,3 +35,5 @@ exports/
 *.pck
 *.exe
 *.app
+
+/android/
