@@ -94,25 +94,45 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 func _process(delta: float) -> void:
-	if raycast.is_colliding():
-		var target = raycast.get_collider()
-		
-		if QuestManager.cek_interaksi_rak(target):
-			if Input.is_action_pressed("interact"): 
-				is_interacting = true
-				waktu_tahan += delta
-				progress_bar.show()
-				progress_bar.value = (waktu_tahan / durasi_interaksi) * 100
-				
-				if waktu_tahan >= durasi_interaksi:
-					QuestManager.selesaikan_rak()
-					batal_interaksi()
-			else:
-				batal_interaksi()
-		else:
+	if not raycast.is_colliding():
+		batal_interaksi()
+		return
+
+	var target := raycast.get_collider()
+
+	# Interaksi mengambil barang dari rak.
+	if QuestManager.cek_interaksi_rak(target):
+		proses_interaksi_rak(delta)
+		return
+
+	# Interaksi dengan kasir setelah semua barang terkumpul.
+	if (
+		QuestManager.quest_berbelanja_selesai
+		and target.has_method("interact")
+	):
+		batal_interaksi()
+
+		if Input.is_action_just_pressed("interact"):
+			print("[PLAYER] Berinteraksi dengan kasir")
+			target.interact()
+
+		return
+
+	batal_interaksi()
+
+func proses_interaksi_rak(delta: float) -> void:
+	if Input.is_action_pressed("interact"):
+		is_interacting = true
+		waktu_tahan += delta
+		progress_bar.show()
+		progress_bar.value = (waktu_tahan / durasi_interaksi) * 100.0
+
+		if waktu_tahan >= durasi_interaksi:
+			QuestManager.selesaikan_rak()
 			batal_interaksi()
 	else:
 		batal_interaksi()
+
 
 func batal_interaksi():
 	if is_interacting:
@@ -120,4 +140,3 @@ func batal_interaksi():
 		waktu_tahan = 0.0
 		progress_bar.hide()
 		progress_bar.value = 0
-		

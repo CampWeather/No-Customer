@@ -1,10 +1,20 @@
 [gd_scene format=3 uid="uid://bjtrby7efctox"]
 
 [ext_resource type="PackedScene" uid="uid://bbqyretd1vs0a" path="res://scenes/props/Player_Movemment.tscn" id="1_e0cvd"]
+[ext_resource type="PackedScene" uid="uid://glyxae16xq7p" path="res://scenes/props/lever_3_4.tscn" id="2_71baw"]
+[ext_resource type="AudioStream" uid="uid://lk1wsovrqxcn" path="res://assets/audio/ambient_3_4.mp3" id="2_niitk"]
+[ext_resource type="Script" uid="uid://cuvghw0ife1bx" path="res://scripts/level_2_lever.gd" id="3_niitk"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x0myo"]
 albedo_color = Color(0, 0, 0, 1)
 metallic_specular = 0.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_d5djh"]
+
+[sub_resource type="Environment" id="Environment_71baw"]
+ambient_light_color = Color(0.8732984, 0.8732984, 0.8732984, 1)
+ambient_light_energy = 1.5
+volumetric_fog_enabled = true
 
 [node name="Level2" type="Node3D" unique_id=76309949]
 
@@ -385,3 +395,22 @@ size = Vector3(1, 1, 0.01)
 
 [node name="player_movemment" parent="." unique_id=888094987 instance=ExtResource("1_e0cvd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14087796, 2.5201478, 15.5528)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="player_movemment" unique_id=1309071252]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.2308955, -1.7041922, -0.22175694)
+stream = ExtResource("2_niitk")
+autoplay = true
+parameters/looping = true
+
+[node name="Lever34" parent="." unique_id=1853224677 instance=ExtResource("2_71baw")]
+transform = Transform3D(-4.371139e-08, 1.0000001, 4.3711395e-08, 0, -4.3711395e-08, 1.0000001, 1, 4.3711392e-08, 1.9106857e-15, -9.474478, 2.096012, 9.173004)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Lever34" unique_id=2009412107]
+script = ExtResource("3_niitk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Lever34/StaticBody3D" unique_id=44981385]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+shape = SubResource("BoxShape3D_d5djh")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=402436787]
+environment = SubResource("Environment_71baw")
