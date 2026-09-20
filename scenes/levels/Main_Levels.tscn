@@ -1,40 +1,35 @@
 [gd_scene format=3 uid="uid://cnjqiv5454cwl"]
 
+[ext_resource type="Script" uid="uid://dwtk042k56p62" path="res://scenes/levels/main_levels.gd" id="1_s3k60"]
+[ext_resource type="PackedScene" uid="uid://bbqyretd1vs0a" path="res://scenes/props/Player_Movemment.tscn" id="1_sr0l7"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_sr0l7"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_s3k60"]
+sky_material = SubResource("ProceduralSkyMaterial_sr0l7")
+
+[sub_resource type="Environment" id="Environment_w7uhn"]
+background_mode = 2
+sky = SubResource("Sky_s3k60")
+glow_enabled = true
+
 [sub_resource type="BoxMesh" id="BoxMesh_4kxuq"]
 size = Vector3(30, 0.2, 30)
 
-[node name="Node3D" type="Node3D" unique_id=221139962]
+[sub_resource type="BoxMesh" id="BoxMesh_62yky"]
+size = Vector3(1, 0.05, 1)
 
-[node name="Floor" type="CSGMesh3D" parent="." unique_id=81653637]
-use_collision = true
-mesh = SubResource("BoxMesh_4kxuq")
+[sub_resource type="BoxMesh" id="BoxMesh_mm1bc"]
+size = Vector3(1, 2, 1)
 
-[node name="kopdes layout" type="CSGCombiner3D" parent="." unique_id=762160399]
+[sub_resource type="BoxMesh" id="BoxMesh_mti6b"]
+size = Vector3(1, 3.5, 1)
 
-[node name="CSGBox3D" type="CSGBox3D" parent="kopdes layout" unique_id=1336337509]
-transform = Transform3D(0.19999999, 0, 0, 0, 3.6724627, 0, 0, 0, 7.801017, -11.392351, 0.94991887, -4.10405)
-use_collision = true
-size = Vector3(1, 0.49414063, 2.2861824)
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="kopdes layout" unique_id=1096065098]
-transform = Transform3D(0.19999999, 0, 0, 0, 3.6724627, 0, 0, 0, 7.801017, 11.734449, 0.94991887, -4.1003895)
-use_collision = true
-size = Vector3(1, 0.49414063, 2.2978182)
-
-[node name="CSGBox3D3" type="CSGBox3D" parent="kopdes layout" unique_id=129951944]
-transform = Transform3D(5.78491e-05, 0, 7.8010163, 0, 3.6724627, 0, -0.19999997, 0, 0.0022563338, 0.17850028, 0.94991887, -13.099163)
-use_collision = true
-size = Vector3(1, 0.49414063, 2.9902344)
-
-[node name="CSGBox3D4" type="CSGBox3D" parent="kopdes layout" unique_id=1256418391]
-transform = Transform3D(5.78491e-05, 0, 7.8010163, 0, 3.6724627, 0, -0.19999997, 0, 0.0022563338, 0.17850028, 0.94991887, 4.5599184)
-use_collision = true
-size = Vector3(1, 0.49414063, 2.9902344)
-
-[node name="CSGBox3D5" type="CSGBox3D" parent="kopdes layout" unique_id=892980727]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.731013, 0.8286934, 4.4698925)
-operation = 2
-size = Vector3(1.6866455, 1.4727173, 1)
+[node name="Node3D" type="Node3D" unique_id=221139962 node_paths=PackedStringArray("urutan_quest_rak")]
+script = ExtResource("1_s3k60")
+urutan_quest_rak = [NodePath("Susunan Rak/Rak11"), NodePath("Susunan Rak/Rak3"), NodePath("Susunan Rak/Rak10"), NodePath("Susunan Rak/Rak6"), NodePath("Susunan Rak/Rak12")]
 
 [node name="Pepohonan" type="CSGCombiner3D" parent="." unique_id=1600125462]
 
@@ -57,3 +52,148 @@ height = 3.1877441
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.052511, 1.6531572, 12.89458)
 radius = 0.229
 height = 3.1877441
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1099370010]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 12.605225, -4.248049)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1343146342]
+environment = SubResource("Environment_w7uhn")
+
+[node name="Floor" type="CSGMesh3D" parent="." unique_id=81653637]
+use_collision = true
+mesh = SubResource("BoxMesh_4kxuq")
+
+[node name="kopdes layout" type="CSGCombiner3D" parent="." unique_id=762160399]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.114798546, 0)
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="kopdes layout" unique_id=1336337509]
+transform = Transform3D(0.19999999, 0, 0, 0, 3.6724627, 0, 0, 0, 7.801017, -11.392351, 3.35034, -4.10405)
+use_collision = true
+size = Vector3(1, 1.859, 2.2861824)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="kopdes layout" unique_id=1096065098]
+transform = Transform3D(0.19999999, 0, 0, 0, 3.6724627, 0, 0, 0, 7.801017, 11.734449, 3.3613234, -4.1003895)
+use_collision = true
+size = Vector3(1, 1.859, 2.2978182)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="kopdes layout" unique_id=129951944]
+transform = Transform3D(5.78491e-05, 0, 7.8010163, 0, 3.6724627, 0, -0.19999997, 0, 0.0022563338, 0.17850028, 3.3662546, -13.099163)
+use_collision = true
+size = Vector3(1, 1.859, 2.9902344)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="kopdes layout" unique_id=1256418391]
+transform = Transform3D(5.78491e-05, 0, 7.8010163, 0, 3.6724627, 0, -0.19999997, 0, 0.0022563338, 0.17850028, 3.3435035, 4.5599184)
+use_collision = true
+size = Vector3(1, 1.859, 2.9902344)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="kopdes layout" unique_id=892980727]
+transform = Transform3D(1.4230669, 0, 0, 0, 1.5910786, 0, 0, 0, 1, 9.070854, 1.4505782, 4.4698925)
+operation = 2
+size = Vector3(1.6866455, 1.859, 1)
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="kopdes layout" unique_id=525794882]
+transform = Transform3D(22.622757, 0, 0, 0, 1, 0, 0, 0, 18.084, 0.312706, 0.16571999, -4.265832)
+mesh = SubResource("BoxMesh_62yky")
+
+[node name="Susunan Rak" type="Node3D" parent="." unique_id=574019232]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.114798546, 0)
+
+[node name="Rak" type="CSGMesh3D" parent="Susunan Rak" unique_id=1611760914]
+transform = Transform3D(-1.1148104e-08, 0, 4.5788026, 0, 1.8461835, 0, -0.2550389, 0, -2.0014582e-07, 1.1052606, 1.0150292, 4.162886)
+use_collision = true
+mesh = SubResource("BoxMesh_mm1bc")
+
+[node name="Rak2" type="CSGMesh3D" parent="Susunan Rak" unique_id=928731634]
+transform = Transform3D(-1.1148104e-08, 0, 4.5788026, 0, 1.8461835, 0, -0.2550389, 0, -2.0014582e-07, -5.4369097, 1.0150292, 4.162886)
+use_collision = true
+mesh = SubResource("BoxMesh_mm1bc")
+
+[node name="Rak3" type="CSGMesh3D" parent="Susunan Rak" unique_id=1294251955 groups=["Rak_Quest"]]
+transform = Transform3D(-0.25503886, 0, -4.0029164e-07, 0, 1.8461834, 0, 2.2296206e-08, 0, -4.5788026, -11.058973, 1.0150292, 0.8519149)
+use_collision = true
+mesh = SubResource("BoxMesh_mm1bc")
+
+[node name="Rak4" type="CSGMesh3D" parent="Susunan Rak" unique_id=687197733]
+transform = Transform3D(-0.25503886, 0, -4.0029164e-07, 0, 1.8461834, 0, 2.2296206e-08, 0, -4.5788026, -11.058973, 1.0150292, -5.7281747)
+use_collision = true
+mesh = SubResource("BoxMesh_mm1bc")
+
+[node name="Rak6" type="CSGMesh3D" parent="Susunan Rak" unique_id=495078967 groups=["Rak_Quest"]]
+transform = Transform3D(-0.002670714, 0, -4.578552, 0, 1.8461837, 0, 0.25502488, 0, -0.047948275, -5.223942, 1.0150292, -12.665791)
+use_collision = true
+mesh = SubResource("BoxMesh_mm1bc")
+
+[node name="Rak7" type="CSGMesh3D" parent="Susunan Rak" unique_id=296123307]
+transform = Transform3D(-0.002670714, 0, -4.578552, 0, 1.8461837, 0, 0.25502488, 0, -0.047948275, 1.5640078, 1.0150292, -12.665791)
+use_collision = true
+mesh = SubResource("BoxMesh_mm1bc")
+
+[node name="Rak9" type="CSGMesh3D" parent="Susunan Rak" unique_id=697225620]
+transform = Transform3D(-0.002670714, 0, -4.578552, 0, 1.8461837, 0, 0.25502488, 0, -0.047948275, -5.1241813, 1.0150292, -0.59518814)
+use_collision = true
+mesh = SubResource("BoxMesh_mm1bc")
+
+[node name="Rak11" type="CSGMesh3D" parent="Susunan Rak" unique_id=1518172939 groups=["Rak_Quest"]]
+transform = Transform3D(-0.002670714, 0, -4.578552, 0, 1.8461837, 0, 0.25502488, 0, -0.047948275, 1.7965846, 1.0150292, -0.59518814)
+use_collision = true
+mesh = SubResource("BoxMesh_mm1bc")
+
+[node name="Rak12" type="CSGMesh3D" parent="Susunan Rak" unique_id=240326511 groups=["Rak_Quest"]]
+transform = Transform3D(-0.25503886, 0, -4.0029164e-07, 0, 1.8461837, 0, 2.2296206e-08, 0, -4.5788026, 11.417295, 1.0150292, -10.050375)
+use_collision = true
+mesh = SubResource("BoxMesh_mm1bc")
+
+[node name="Rak14" type="CSGMesh3D" parent="Susunan Rak" unique_id=1613839409]
+transform = Transform3D(-0.25503886, 0, -4.0029164e-07, 0, 1.8461837, 0, 2.2296206e-08, 0, -4.5788026, 11.417295, 1.0150292, -4.294457)
+use_collision = true
+mesh = SubResource("BoxMesh_mm1bc")
+
+[node name="Rak13" type="CSGMesh3D" parent="Susunan Rak" unique_id=1342259219]
+transform = Transform3D(-0.002670714, 0, -4.578552, 0, 1.8461837, 0, 0.25502488, 0, -0.047948275, 1.7965846, 1.0150292, -7.278378)
+use_collision = true
+mesh = SubResource("BoxMesh_mm1bc")
+
+[node name="Rak10" type="CSGMesh3D" parent="Susunan Rak" unique_id=69325999 groups=["Rak_Quest"]]
+transform = Transform3D(-0.002670714, 0, -4.578552, 0, 1.8461837, 0, 0.25502488, 0, -0.047948275, -5.1241813, 1.0150292, -7.509486)
+use_collision = true
+mesh = SubResource("BoxMesh_mm1bc")
+
+[node name="Rak8" type="CSGMesh3D" parent="Susunan Rak" unique_id=353977830]
+transform = Transform3D(-0.002670714, 0, -4.578552, 0, 1.8461837, 0, 0.25502488, 0, -0.047948275, 8.02811, 1.0150292, -12.665791)
+use_collision = true
+mesh = SubResource("BoxMesh_mm1bc")
+
+[node name="Rak5" type="CSGMesh3D" parent="Susunan Rak" unique_id=706232822]
+transform = Transform3D(-0.25503886, 0, -2.0886074e-07, 0, 1.8461834, 0, 2.2296206e-08, 0, -2.3890884, -11.058973, 1.0150292, -11.092578)
+use_collision = true
+mesh = SubResource("BoxMesh_mm1bc")
+
+[node name="Meja Kasir" type="CSGCombiner3D" parent="." unique_id=30966982]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.114798546, 0)
+use_collision = true
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="Meja Kasir" unique_id=1429515425]
+transform = Transform3D(1.3576114, 0, 0, 0, 0.3924616, 0, 0, 0, 0.35077018, 10.9890995, 0.58666253, -0.6124245)
+use_collision = true
+mesh = SubResource("BoxMesh_mti6b")
+
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="Meja Kasir" unique_id=1060647813]
+transform = Transform3D(-1.5729064e-07, 0, 0.2918994, 0, 0.3924616, 0, -3.5983903, 0, -1.2759328e-08, 10.326406, 0.58666253, 1.1699419)
+use_collision = true
+mesh = SubResource("BoxMesh_mti6b")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="Meja Kasir" unique_id=146173617]
+transform = Transform3D(1.3576114, 0, 0, 0, 0.3924616, 0, 0, 0, 0.35077018, 10.9552, 0.58666253, 2.9535124)
+use_collision = true
+mesh = SubResource("BoxMesh_mti6b")
+
+[node name="CSGMesh3D4" type="CSGMesh3D" parent="Meja Kasir" unique_id=1167139870]
+transform = Transform3D(0.4097101, 0, 0, 0, 0.37786874, 0, 0, 0, 0.36097184, 11.36891, 0.6452883, -0.6139532)
+operation = 2
+use_collision = true
+mesh = SubResource("BoxMesh_mti6b")
+
+[node name="player_movemment" parent="." unique_id=888094987 instance=ExtResource("1_sr0l7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.198828, 0.9396095, 13.578794)

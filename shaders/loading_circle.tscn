@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://d04pw3vb8w7h"]
+
+[sub_resource type="Gradient" id="Gradient_4s4vp"]
+offsets = PackedFloat32Array(0.5714286, 0.64285713)
+colors = PackedColorArray(0.4045111, 0.40451115, 0.4045111, 1, 1, 1, 1, 0)
+metadata/_snap_enabled = true
+metadata/_snap_count = 14
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4kxuq"]
+gradient = SubResource("Gradient_4s4vp")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_wpqco"]
+offsets = PackedFloat32Array(0.5714286, 0.64285713)
+colors = PackedColorArray(0.958888, 0.9588881, 0.958888, 1, 1, 1, 1, 0)
+metadata/_snap_enabled = true
+metadata/_snap_count = 14
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_62yky"]
+gradient = SubResource("Gradient_wpqco")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[node name="loading_circle" type="Control" unique_id=1229118637]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=144648825]
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer" unique_id=159816448]
+anchors_preset = -1
+anchor_top = 0.537
+anchor_bottom = 0.537
+offset_left = 512.0
+offset_top = -27.976013
+offset_right = 576.0
+offset_bottom = 36.023987
+fill_mode = 3
+texture_under = SubResource("GradientTexture2D_4kxuq")
+texture_progress = SubResource("GradientTexture2D_62yky")
