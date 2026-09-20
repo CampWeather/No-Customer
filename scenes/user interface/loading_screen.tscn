@@ -31,7 +31,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="CenterContainer/VBoxContainer" unique_id=845489951]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.99999994, 0.100497045, 0.39409256, 1)
+theme_override_colors/font_color = Color(0.6506768, 0.049989022, 9.62615e-08, 1)
 theme_override_font_sizes/font_size = 42
 text = "No Customer"
 horizontal_alignment = 1
