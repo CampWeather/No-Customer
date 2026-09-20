@@ -38,6 +38,10 @@ func selesaikan_rak():
 
 
 func atur_outline(rak: Node, status: bool):
+	if rak == null:
+		print("[ERROR] Rak yang diberikan adalah NULL!")
+		return
+
 	if rak is GeometryInstance3D:
 		if status:
 			rak.material_overlay = material_outline

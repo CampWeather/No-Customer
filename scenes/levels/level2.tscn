@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://bjtrby7efctox"]
 
+[ext_resource type="PackedScene" uid="uid://bbqyretd1vs0a" path="res://scenes/props/Player_Movemment.tscn" id="1_e0cvd"]
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x0myo"]
 albedo_color = Color(0, 0, 0, 1)
 metallic_specular = 0.0
@@ -12,6 +14,7 @@ size = Vector3(50, 0.1, 50)
 material = SubResource("StandardMaterial3D_x0myo")
 
 [node name="Walls" type="Node3D" parent="." unique_id=1890351488]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 11.472235, 0, 13.976316)
 
 [node name="Wall14" type="CSGBox3D" parent="Walls" unique_id=1120211108]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2, 0.55, -3)
@@ -369,13 +372,16 @@ use_collision = true
 size = Vector3(4, 1, 0.01)
 
 [node name="Start" type="CSGBox3D" parent="." unique_id=1050863494]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.5, 0.55050004, 0.50049996)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.23629522, 0.55050004, 15.389528)
 size = Vector3(0.05, 1, 0.05)
 
 [node name="End" type="CSGBox3D" parent="." unique_id=2122988564]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.5, 0.55050004, -1.4995003)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.2249937, 0.55050004, 9.547619)
 size = Vector3(0.05, 1, 0.05)
 
 [node name="Code2" type="CSGBox3D" parent="." unique_id=1019135706]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.5298986e-07, 0.55, 2.5)
 size = Vector3(1, 1, 0.01)
+
+[node name="player_movemment" parent="." unique_id=888094987 instance=ExtResource("1_e0cvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14087796, 2.5201478, 15.5528)
