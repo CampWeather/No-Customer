@@ -1,23 +1,36 @@
 [gd_scene format=3 uid="uid://nhng2pyyxj2k"]
 
+[ext_resource type="PackedScene" uid="uid://bbqyretd1vs0a" path="res://scenes/props/Player_Movemment.tscn" id="1_8rpwu"]
+[ext_resource type="PackedScene" uid="uid://glyxae16xq7p" path="res://scenes/props/lever_3_4.tscn" id="2_fjlvv"]
+[ext_resource type="AudioStream" uid="uid://lk1wsovrqxcn" path="res://assets/audio/ambient_3_4.mp3" id="2_o34q2"]
+[ext_resource type="Script" uid="uid://cf3vgmtw2sayo" path="res://scripts/level_4_exit.gd" id="4_o34q2"]
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x0myo"]
 albedo_color = Color(0, 0, 0, 1)
 metallic_specular = 0.0
+
+[sub_resource type="Environment" id="Environment_bditt"]
+ambient_light_color = Color(0.37413925, 0.37413928, 0.37413922, 1)
+ambient_light_energy = 0.7
+volumetric_fog_enabled = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rdsj4"]
 
 [node name="Level4" type="Node3D" unique_id=76309949]
 
 [node name="Floor" type="CSGBox3D" parent="." unique_id=2083659313]
 transform = Transform3D(0.999996, -0.0018012868, 0.0021947785, 0.0018047256, 0.99999714, -0.0015731963, -0.0021919515, 0.0015771323, 0.99999636, 0.00944519, 0.017973423, -0.005563736)
 use_collision = true
-size = Vector3(50, 0.1, 50)
+size = Vector3(250, 0.1, 250)
 material = SubResource("StandardMaterial3D_x0myo")
 
 [node name="Walls" type="Node3D" parent="." unique_id=1890351488]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, 0, 0)
 
 [node name="Wall14" type="CSGBox3D" parent="Walls" unique_id=1120211108]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2, 0.55, -4.5)
+transform = Transform3D(-4.3711392e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711392e-08, -2, 0.55, -5)
 use_collision = true
-size = Vector3(11, 1, 0.01)
+size = Vector3(10, 1, 0.01)
 
 [node name="Wall15" type="CSGBox3D" parent="Walls" unique_id=602003187]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3, 0.4786499, -1)
@@ -35,9 +48,9 @@ use_collision = true
 size = Vector3(6, 0.8572998, 0.01)
 
 [node name="Wall16" type="CSGBox3D" parent="Walls" unique_id=440156254]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0.55, -2)
+transform = Transform3D(-4.3711392e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711392e-08, -6.5567086e-08, 0.55, -3.5)
 use_collision = true
-size = Vector3(8, 1, 0.01)
+size = Vector3(5, 1, 0.01)
 
 [node name="Wall17" type="CSGBox3D" parent="Walls" unique_id=15087497]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.9999999, 0.55, 0.5)
@@ -170,9 +183,9 @@ use_collision = true
 size = Vector3(5, 1, 0.01)
 
 [node name="Wall72" type="CSGBox3D" parent="Walls" unique_id=1810181920]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.55, -5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0.55, -5)
 use_collision = true
-size = Vector3(4, 1, 0.01)
+size = Vector3(3, 1, 0.01)
 
 [node name="Wall82" type="CSGBox3D" parent="Walls" unique_id=92999963]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0.55, -5)
@@ -397,6 +410,24 @@ size = Vector3(0.05, 1, 0.05)
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -10.6235695, 0.55050004, -9.514468)
 size = Vector3(0.05, 1, 0.05)
 
-[node name="Code2" type="CSGBox3D" parent="." unique_id=1019135706]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.5298986e-07, 0.55, 2.5)
-size = Vector3(1, 1, 0.01)
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=330940744]
+environment = SubResource("Environment_bditt")
+
+[node name="player_movemment" parent="." unique_id=888094987 instance=ExtResource("1_8rpwu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.469712, 1.0564266, 1.4909805)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="player_movemment" unique_id=1875864517]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.2308955, -1.7041922, -0.22175694)
+stream = ExtResource("2_o34q2")
+autoplay = true
+parameters/looping = true
+
+[node name="Lever34" parent="." unique_id=1853224677 instance=ExtResource("2_fjlvv")]
+transform = Transform3D(-4.371139e-08, -1.0000001, -4.3711395e-08, 0, -4.3711395e-08, 1.0000001, -1, 4.3711392e-08, 1.9106857e-15, 2.3982048, 1.3150601, -2.549068)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Lever34" unique_id=653061619]
+script = ExtResource("4_o34q2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Lever34/StaticBody3D" unique_id=1182355319]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+shape = SubResource("BoxShape3D_rdsj4")

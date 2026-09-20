@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://glyxae16xq7p"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sru4k"]
+albedo_color = Color(0.1584723, 0.15847233, 0.1584723, 1)
+
+[node name="Lever34" type="Node3D" unique_id=1853224677]
+
+[node name="Box" type="CSGBox3D" parent="." unique_id=571300215]
+size = Vector3(0.2, 0.1, 0.4)
+material = SubResource("StandardMaterial3D_sru4k")
+
+[node name="Box2" type="CSGBox3D" parent="." unique_id=308270378]
+transform = Transform3D(1, 0, 0, 0, 0.8234446, 0.5673967, 0, -0.5673967, 0.8234446, 0, 0.116451144, -0.11651381)
+size = Vector3(0.05, 0.317, 0.05)

@@ -1,33 +1,57 @@
 [gd_scene format=3 uid="uid://bghcx6n3iyo81"]
 
+[ext_resource type="Script" uid="uid://bff2ojskhfjtv" path="res://scripts/level_5_monster_run.gd" id="1_7um5s"]
 [ext_resource type="PackedScene" uid="uid://bbqyretd1vs0a" path="res://scenes/props/Player_Movemment.tscn" id="1_467l6"]
+[ext_resource type="Script" uid="uid://cgbhtmu6n3r27" path="res://scripts/moving_wall.gd" id="2_0yael"]
+[ext_resource type="PackedScene" uid="uid://dcugisaqx8ll6" path="res://assets/models/Monster_Running.fbx" id="2_5yen4"]
+[ext_resource type="Script" uid="uid://bvkn5cm14j5q4" path="res://scripts/monster_running.gd" id="4_37jyc"]
+[ext_resource type="AudioStream" uid="uid://lk1wsovrqxcn" path="res://assets/audio/ambient_3_4.mp3" id="4_qsj6i"]
+[ext_resource type="Script" uid="uid://cqdvousu6dlq5" path="res://scripts/win_box.gd" id="6_v1pya"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x0myo"]
 albedo_color = Color(0, 0, 0, 1)
 metallic_specular = 0.0
 
-[node name="Level3" type="Node3D" unique_id=76309949]
+[sub_resource type="Environment" id="Environment_x0myo"]
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 2.0
+volumetric_fog_enabled = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_k5un7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5ap7w"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_x0myo"]
+font_size = 96
+
+[node name="Level5" type="Node3D" unique_id=76309949]
+script = ExtResource("1_7um5s")
 
 [node name="Floor" type="CSGBox3D" parent="." unique_id=2083659313]
-transform = Transform3D(0.999996, -0.0018012868, 0.0021947785, 0.0018047256, 0.99999714, -0.0015731963, -0.0021919515, 0.0015771323, 0.99999636, 5.1569066, 0.022862092, 2.7736988)
+transform = Transform3D(0.999996, -0.0018012868, 0.0021947785, 0.0018047256, 0.99999714, -0.0015731963, -0.0021919515, 0.0015771323, 0.99999636, 21.405712, 0.052186843, 2.7380822)
 use_collision = true
-size = Vector3(39.717285, 0.1, 5.5608826)
+size = Vector3(72.21503, 0.1, 5.5608826)
 material = SubResource("StandardMaterial3D_x0myo")
 
 [node name="Walls" type="Node3D" parent="." unique_id=1890351488]
 
 [node name="Wall3" type="CSGBox3D" parent="Walls" unique_id=1015996490]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.1633644, 0.55, 1.9713888)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.495754, 0.55, 1.9713888)
 use_collision = true
-size = Vector3(39.506714, 3, 0.01)
+size = Vector3(72.17149, 3, 0.01)
 
 [node name="Wall4" type="CSGBox3D" parent="Walls" unique_id=858088204]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.3778667, 0.55, 4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.313091, 0.55, 4)
 use_collision = true
-size = Vector3(39.935623, 3, 0.01)
+size = Vector3(71.80607, 3, 0.01)
 
 [node name="Wall5" type="CSGBox3D" parent="Walls" unique_id=1524685344]
 transform = Transform3D(-8.797688e-08, 0, -1, 0, 2.0800097, 0, 2.0126762, 0, -4.371139e-08, -14.502221, 1.0360833, 2.9924955)
+use_collision = true
+size = Vector3(1.0184937, 1, 0.01)
+
+[node name="Wall6" type="CSGBox3D" parent="Walls" unique_id=1071024851]
+transform = Transform3D(-8.797688e-08, 0, -1, 0, 2.0800097, 0, 2.0126762, 0, -4.371139e-08, 56.835716, 1.0360833, 2.9924955)
 use_collision = true
 size = Vector3(1.0184937, 1, 0.01)
 
@@ -84,10 +108,107 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.125109, 0.34386003, 3.7233
 use_collision = true
 size = Vector3(1, 0.5, 1.8039551)
 
+[node name="CSGBox3D11" type="CSGBox3D" parent="." unique_id=547961826]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.22525, 0.34386003, 3.7233753)
+use_collision = true
+size = Vector3(1, 0.5, 1.8039551)
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="." unique_id=1231721263]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.35618, 0.34386003, 2.3878708)
+use_collision = true
+size = Vector3(1, 0.5, 1.8039551)
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="." unique_id=1866197257]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.821335, 2.000431, 3.091179)
+use_collision = true
+size = Vector3(1, 0.5, 3.2105713)
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="." unique_id=1997505581]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.974876, 2.000431, 3.091179)
+use_collision = true
+size = Vector3(1, 0.5, 3.2105713)
+
+[node name="Moving_Wall" type="CSGBox3D" parent="." unique_id=505951165]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.987152, 0.62037313, 0.22828162)
+use_collision = true
+size = Vector3(1, 2.8388672, 3.2105713)
+script = ExtResource("2_0yael")
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="." unique_id=658246624]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.588278, 0.60502946, 2.9362392)
+use_collision = true
+size = Vector3(1, 1.0223389, 2.7608643)
+
 [node name="CSGBox3D10" type="CSGBox3D" parent="." unique_id=2131275185]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.875675, 1.6666132, 2.9785757)
 use_collision = true
 size = Vector3(1, 0.5, 2.973877)
 
-[node name="player_movemment" parent="." unique_id=888094987 instance=ExtResource("1_467l6")]
+[node name="player_movemment" parent="." unique_id=888094987 groups=["player"] instance=ExtResource("1_467l6")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -12.871527, 1.5826708, 2.886061)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="player_movemment" unique_id=960510650]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.2308955, -1.7041922, -0.22175694)
+stream = ExtResource("4_qsj6i")
+autoplay = true
+parameters/looping = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1661956588]
+environment = SubResource("Environment_x0myo")
+
+[node name="Monster_Running" parent="." unique_id=1537674758 instance=ExtResource("2_5yen4")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -15.339965, 0.06028392, 2.93316)
+script = ExtResource("4_37jyc")
+run_distance = 50.0
+
+[node name="Area3D" type="Area3D" parent="Monster_Running" unique_id=904525203]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0.5012883, -1.3105135)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Monster_Running/Area3D" unique_id=1726764374]
+shape = SubResource("BoxShape3D_k5un7")
+
+[node name="MonsterRunBox" type="Area3D" parent="." unique_id=768419541]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.208479, 0, 3.4238548)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MonsterRunBox" unique_id=1589662447]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -0.010155678, 0.6956171, -0.46528578)
+shape = SubResource("BoxShape3D_5ap7w")
+
+[node name="WinBox" type="Area3D" parent="." unique_id=1719468385]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.493076, 0, 3.4238548)
+script = ExtResource("6_v1pya")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WinBox" unique_id=851331458]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -0.010155678, 0.6956171, -0.46528578)
+shape = SubResource("BoxShape3D_5ap7w")
+
+[node name="Control" type="Control" parent="." unique_id=1498776237]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Control" unique_id=1836268885]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "You Escaped!"
+label_settings = SubResource("LabelSettings_x0myo")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="Control/Label" unique_id=559856683]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.18359044, 0.18359044, 0.18359044, 1)
