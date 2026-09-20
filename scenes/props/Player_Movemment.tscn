@@ -40,7 +40,7 @@ script = ExtResource("1_jcfta")
 [node name="Neck" type="Node3D" parent="CharacterBody3D" unique_id=1695675950]
 
 [node name="Camera3D" type="Camera3D" parent="CharacterBody3D/Neck" unique_id=110236097]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.60080874, -0.10147154)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.36585742, 0.07448214)
 
 [node name="RayCast3D" type="RayCast3D" parent="CharacterBody3D/Neck/Camera3D" unique_id=1317018223]
 target_position = Vector3(0, -1, -2)
@@ -49,6 +49,7 @@ target_position = Vector3(0, -1, -2)
 mesh = SubResource("CapsuleMesh_4kxuq")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=1434917968]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.013122261, 0)
 shape = SubResource("CapsuleShape3D_4kxuq")
 
 [node name="loading_circle" type="Control" parent="CharacterBody3D" unique_id=1229118637]

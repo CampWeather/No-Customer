@@ -200,4 +200,4 @@ mesh = SubResource("BoxMesh_mti6b")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.198828, 0.9396095, 13.578794)
 
 [node name="Kasir_NPC" parent="." unique_id=1258087208 instance=ExtResource("3_w7uhn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.069477, 0.8908248, 1.2058606)
+transform = Transform3D(-0.063342616, 0, -0.99799186, 0, 1, 0, 0.99799186, 0, -0.063342616, 10.402339, 0.8908248, 1.3648834)
