@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://bcu24rnsengsw"]
+
+[ext_resource type="PackedScene" uid="uid://d1s2dudjeaurm" path="res://assets/models/Cashier.fbx" id="1_3ophl"]
+
+[node name="Cashier" unique_id=513464461 instance=ExtResource("1_3ophl")]
+
+[node name="Skeleton3D" parent="." index="0" unique_id=401214549]
+bones/7/rotation = Quaternion(0.600504, 0.360276, -0.624016, 0.346701)
+bones/8/rotation = Quaternion(0.361621, 0.00176, -0.002756, 0.932319)
+bones/9/rotation = Quaternion(0.058929, -0.009039, 0.049995, 0.996969)
+bones/10/rotation = Quaternion(-0.024378, -0.016304, -0.059656, 0.997788)
+bones/31/rotation = Quaternion(-0.601592, 0.35967, -0.622967, -0.347329)
+bones/32/rotation = Quaternion(0.406702, -0.005499, 0.009479, 0.913495)

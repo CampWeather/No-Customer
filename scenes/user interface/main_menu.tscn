@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://cqvm0lgi4450n"]
 
-[ext_resource type="Texture2D" uid="uid://bmrdaihm0lhpn" path="res://icon.svg" id="1_p644k"]
+[ext_resource type="Script" uid="uid://lbwo6ciugjf5" path="res://scenes/user interface/main_menu.gd" id="1_ugt58"]
+[ext_resource type="Texture2D" uid="uid://dx4log4nr1jss" path="res://assets/textures/background.jpeg" id="1_xui7p"]
 [ext_resource type="FontFile" uid="uid://cngpa5dlv600n" path="res://assets/Font File/Emilys_Candy/EmilysCandy-Regular.ttf" id="2_aiv86"]
-[ext_resource type="FontFile" uid="uid://dsede5j1bwd80" path="res://assets/Font File/Love_Ya_Like_A_Sister/LoveYaLikeASister-Regular.ttf" id="3_xui7p"]
+[ext_resource type="FontFile" uid="uid://cr1i2l7m8bbdk" path="res://assets/Font File/static/Oswald-Bold.ttf" id="3_aiv86"]
 [ext_resource type="Script" uid="uid://bccv0uonbawqh" path="res://scenes/user interface/label_2.gd" id="4_ugt58"]
+[ext_resource type="FontFile" uid="uid://iujo1f8j1oyq" path="res://assets/Font File/Gorditas/Gorditas-Regular.ttf" id="5_ugt58"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_4kxuq"]
 font = ExtResource("2_aiv86")
@@ -12,9 +14,19 @@ font_size = 48
 [sub_resource type="LabelSettings" id="LabelSettings_mti6b"]
 line_spacing = 1.0
 paragraph_spacing = 1.0
-font = ExtResource("3_xui7p")
-font_size = 26
+font = ExtResource("3_aiv86")
+font_size = 34
 font_color = Color(0.6811505, 0.14468026, 0.035508364, 1)
+
+[sub_resource type="Theme" id="Theme_ugt58"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_01pm5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q2gq4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_deitm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8d13s"]
 
 [node name="Main menu" type="Control" unique_id=1866492402]
 layout_mode = 3
@@ -23,6 +35,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_ugt58")
 
 [node name="Background" type="TextureRect" parent="." unique_id=1866116323]
 layout_mode = 1
@@ -31,7 +44,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_p644k")
+texture = ExtResource("1_xui7p")
 
 [node name="DarkOverlay" type="ColorRect" parent="." unique_id=1313442933]
 layout_mode = 1
@@ -40,7 +53,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.050980393, 0.050980393, 0.050980393, 0.56078434)
+color = Color(3.723037e-05, 3.723037e-05, 3.7230366e-05, 0.56078434)
 
 [node name="Main Container" type="MarginContainer" parent="." unique_id=1499430523]
 layout_mode = 0
@@ -51,13 +64,14 @@ offset_bottom = 566.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Main Container" unique_id=1379526627]
 layout_mode = 2
+theme_override_constants/separation = 8
 
-[node name="Label" type="Label" parent="Main Container/VBoxContainer" unique_id=1610037104]
+[node name="NO" type="Label" parent="Main Container/VBoxContainer" unique_id=1610037104]
 layout_mode = 2
 text = "No"
 label_settings = SubResource("LabelSettings_4kxuq")
 
-[node name="Label2" type="Label" parent="Main Container/VBoxContainer" unique_id=985654372]
+[node name="Costumer" type="Label" parent="Main Container/VBoxContainer" unique_id=985654372]
 layout_mode = 2
 size_flags_vertical = 1
 size_flags_stretch_ratio = 4.25
@@ -65,3 +79,102 @@ text = "Costumer"
 label_settings = SubResource("LabelSettings_mti6b")
 horizontal_alignment = 3
 script = ExtResource("4_ugt58")
+
+[node name="divider" type="ColorRect" parent="Main Container/VBoxContainer" unique_id=152799966]
+custom_minimum_size = Vector2(285, 3)
+layout_mode = 2
+size_flags_horizontal = 0
+color = Color(0.9201423, 0, 0.29108667, 1)
+
+[node name="MenuButton" type="MenuButton" parent="Main Container/VBoxContainer" unique_id=1062438303]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = SubResource("Theme_ugt58")
+
+[node name="Start_Button" type="Button" parent="Main Container/VBoxContainer/MenuButton" unique_id=1006784418]
+custom_minimum_size = Vector2(260, 40)
+layout_mode = 0
+offset_right = 185.0
+offset_bottom = 36.0
+theme_override_colors/font_color = Color(0.6666667, 0.654902, 0.627451, 1)
+theme_override_colors/font_focus_color = Color(0.77254903, 0.13725491, 0.1764706, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.77254903, 0.13725491, 0.1764706, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.6156863, 0.09411765, 0.1254902, 1)
+theme_override_colors/font_disabled_color = Color(0.37254903, 0.3764706, 0.3647059, 1)
+theme_override_fonts/font = ExtResource("5_ugt58")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_01pm5")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_q2gq4")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_deitm")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8d13s")
+text = "New Game"
+
+[node name="Continue_Button" type="Button" parent="Main Container/VBoxContainer/MenuButton" unique_id=673045026]
+custom_minimum_size = Vector2(260, 40)
+layout_mode = 0
+offset_top = 54.0
+offset_right = 260.0
+offset_bottom = 94.0
+theme_override_colors/font_color = Color(0.6666667, 0.654902, 0.627451, 1)
+theme_override_colors/font_focus_color = Color(0.77254903, 0.13725491, 0.1764706, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.77254903, 0.13725491, 0.1764706, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.6156863, 0.09411765, 0.1254902, 1)
+theme_override_colors/font_disabled_color = Color(0.37254903, 0.3764706, 0.3647059, 1)
+theme_override_fonts/font = ExtResource("5_ugt58")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_01pm5")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_q2gq4")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_deitm")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8d13s")
+text = "Continue"
+
+[node name="Settings_Button" type="Button" parent="Main Container/VBoxContainer/MenuButton" unique_id=1772559984]
+custom_minimum_size = Vector2(260, 40)
+layout_mode = 0
+offset_top = 109.0
+offset_right = 260.0
+offset_bottom = 149.0
+theme_override_colors/font_color = Color(0.6666667, 0.654902, 0.627451, 1)
+theme_override_colors/font_focus_color = Color(0.77254903, 0.13725491, 0.1764706, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.77254903, 0.13725491, 0.1764706, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.6156863, 0.09411765, 0.1254902, 1)
+theme_override_colors/font_disabled_color = Color(0.37254903, 0.3764706, 0.3647059, 1)
+theme_override_fonts/font = ExtResource("5_ugt58")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_01pm5")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_q2gq4")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_deitm")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8d13s")
+text = "Settings"
+
+[node name="Exit_ Button" type="Button" parent="Main Container/VBoxContainer/MenuButton" unique_id=1507659218]
+custom_minimum_size = Vector2(260, 40)
+layout_mode = 0
+offset_top = 162.0
+offset_right = 260.0
+offset_bottom = 202.0
+theme_override_colors/font_color = Color(0.6666667, 0.654902, 0.627451, 1)
+theme_override_colors/font_focus_color = Color(0.77254903, 0.13725491, 0.1764706, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.77254903, 0.13725491, 0.1764706, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.6156863, 0.09411765, 0.1254902, 1)
+theme_override_colors/font_disabled_color = Color(0.37254903, 0.3764706, 0.3647059, 1)
+theme_override_fonts/font = ExtResource("5_ugt58")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_01pm5")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_q2gq4")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_deitm")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8d13s")
+text = "Exit"
+
+[node name="FlashCamera" type="ColorRect" parent="." unique_id=1091735975]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0)
+
+[connection signal="pressed" from="Main Container/VBoxContainer/MenuButton/Start_Button" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="Main Container/VBoxContainer/MenuButton/Exit_ Button" to="." method="_on_exit__button_pressed"]
