@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://b2i5cuivna10m"]
+
+[ext_resource type="Script" uid="uid://c4xii6t7wgrsd" path="res://scenes/props/NPC/Kasir/kasir.gd" id="1_snhlx"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_4kxuq"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4kxuq"]
+
+[node name="Kasir_NPC" type="Node3D" unique_id=1258087208]
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=484699107]
+script = ExtResource("1_snhlx")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D" unique_id=122361660]
+mesh = SubResource("CapsuleMesh_4kxuq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=1775728866]
+shape = SubResource("CapsuleShape3D_4kxuq")
+
+[node name="Quest Mark" type="Label3D" parent="CharacterBody3D" unique_id=159176224]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5023451, 0)
+billboard = 1
+modulate = Color(1, 1, 0, 1)
+text = "!"
+font_size = 100
+outline_size = 22
