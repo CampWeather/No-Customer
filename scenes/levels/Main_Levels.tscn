@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dwtk042k56p62" path="res://scenes/levels/main_levels.gd" id="1_s3k60"]
 [ext_resource type="PackedScene" uid="uid://bbqyretd1vs0a" path="res://scenes/props/Player_Movemment.tscn" id="1_sr0l7"]
+[ext_resource type="PackedScene" uid="uid://b2i5cuivna10m" path="res://scenes/props/NPC/Kasir/Kasir.tscn" id="3_w7uhn"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_sr0l7"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -93,8 +94,8 @@ transform = Transform3D(1.4230669, 0, 0, 0, 1.5910786, 0, 0, 0, 1, 9.070854, 1.4
 operation = 2
 size = Vector3(1.6866455, 1.859, 1)
 
-[node name="CSGMesh3D" type="CSGMesh3D" parent="kopdes layout" unique_id=525794882]
-transform = Transform3D(22.622757, 0, 0, 0, 1, 0, 0, 0, 18.084, 0.312706, 0.16571999, -4.265832)
+[node name="lantai" type="CSGMesh3D" parent="kopdes layout" unique_id=525794882]
+transform = Transform3D(22.622757, 0, 0, 0, 1, 0, 0, 0, 18.084, 0.313, 0.2, -4.266)
 mesh = SubResource("BoxMesh_62yky")
 
 [node name="Susunan Rak" type="Node3D" parent="." unique_id=574019232]
@@ -175,17 +176,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.114798546, 0)
 use_collision = true
 
 [node name="CSGMesh3D" type="CSGMesh3D" parent="Meja Kasir" unique_id=1429515425]
-transform = Transform3D(1.3576114, 0, 0, 0, 0.3924616, 0, 0, 0, 0.35077018, 10.9890995, 0.58666253, -0.6124245)
+transform = Transform3D(1.3576114, 0, 0, 0, 0.3924616, 0, 0, 0, 0.35077018, 10.440685, 0.58666253, -0.6124245)
 use_collision = true
 mesh = SubResource("BoxMesh_mti6b")
 
 [node name="CSGMesh3D3" type="CSGMesh3D" parent="Meja Kasir" unique_id=1060647813]
-transform = Transform3D(-1.5729064e-07, 0, 0.2918994, 0, 0.3924616, 0, -3.5983903, 0, -1.2759328e-08, 10.326406, 0.58666253, 1.1699419)
+transform = Transform3D(-1.5729064e-07, 0, 0.2918994, 0, 0.3924616, 0, -3.5983903, 0, -1.2759328e-08, 9.756923, 0.58666253, 1.1699419)
 use_collision = true
 mesh = SubResource("BoxMesh_mti6b")
 
 [node name="CSGMesh3D2" type="CSGMesh3D" parent="Meja Kasir" unique_id=146173617]
-transform = Transform3D(1.3576114, 0, 0, 0, 0.3924616, 0, 0, 0, 0.35077018, 10.9552, 0.58666253, 2.9535124)
+transform = Transform3D(2.0629208, 0, 0, 0, 0.3924616, 0, 0, 0, 0.35077018, 10.767633, 0.58666253, 2.9535124)
 use_collision = true
 mesh = SubResource("BoxMesh_mti6b")
 
@@ -197,3 +198,6 @@ mesh = SubResource("BoxMesh_mti6b")
 
 [node name="player_movemment" parent="." unique_id=888094987 instance=ExtResource("1_sr0l7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.198828, 0.9396095, 13.578794)
+
+[node name="Kasir_NPC" parent="." unique_id=1258087208 instance=ExtResource("3_w7uhn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.069477, 0.8908248, 1.2058606)
