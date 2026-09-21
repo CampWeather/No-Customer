@@ -2,19 +2,27 @@
 
 [ext_resource type="PackedScene" uid="uid://bbqyretd1vs0a" path="res://scenes/props/Player_Movemment.tscn" id="1_02w4s"]
 [ext_resource type="PackedScene" uid="uid://glyxae16xq7p" path="res://scenes/props/lever_3_4.tscn" id="2_s1j21"]
-[ext_resource type="Script" uid="uid://sv4yfwt78t83" path="res://scripts/lever_3.gd" id="3_sru4k"]
+[ext_resource type="Script" uid="uid://bwnk7j1vlrchd" path="res://scripts/interact_lever3.gd" id="4_f5jb5"]
 [ext_resource type="AudioStream" uid="uid://lk1wsovrqxcn" path="res://assets/audio/ambient_3_4.mp3" id="4_t275y"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x0myo"]
 albedo_color = Color(0, 0, 0, 1)
 metallic_specular = 0.0
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_x0myo"]
-
 [sub_resource type="Environment" id="Environment_x0myo"]
 ambient_light_color = Color(0.62967473, 0.62967473, 0.6296747, 1)
 ambient_light_energy = 0.7
 volumetric_fog_enabled = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_frjko"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f7rt6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_t275y"]
+font_size = 32
+font_color = Color(0.91852146, 0.90383106, 0.90750253, 1)
+outline_size = 7
+outline_color = Color(0, 0, 0, 1)
 
 [node name="Level3" type="Node3D" unique_id=76309949]
 
@@ -390,21 +398,39 @@ size = Vector3(4, 1, 0.01)
 [node name="player_movemment" parent="." unique_id=888094987 instance=ExtResource("1_02w4s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.2308955, 1.7041922, 0.22175694)
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="player_movemment" unique_id=1108538832]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.2308955, -1.7041922, -0.22175694)
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=882453205]
+environment = SubResource("Environment_x0myo")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=608913548]
 stream = ExtResource("4_t275y")
 autoplay = true
 parameters/looping = true
 
 [node name="Lever34" parent="." unique_id=1853224677 instance=ExtResource("2_s1j21")]
-transform = Transform3D(1, 0, 0, 0, -4.3711392e-08, 1.0000001, 0, -1.0000001, -4.3711392e-08, -16.615658, 2.096012, -2.549068)
+transform = Transform3D(1, 1.7484558e-07, 7.6427436e-15, 4.658821e-22, -4.3711402e-08, 1.0000001, 1.7484555e-07, -1.0000001, -4.3711402e-08, -16.777426, 2.24698, -2.5563126)
+script = ExtResource("4_f5jb5")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Lever34" unique_id=144553240]
-script = ExtResource("3_sru4k")
+[node name="StaticBody3D" type="StaticBody3D" parent="Lever34" unique_id=1025494513]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Lever34/StaticBody3D" unique_id=1759928242]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Lever34/StaticBody3D" unique_id=1054649830]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
-shape = SubResource("BoxShape3D_x0myo")
+shape = SubResource("BoxShape3D_frjko")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=882453205]
-environment = SubResource("Environment_x0myo")
+[node name="InteractArea" type="Area3D" parent="Lever34" unique_id=336832801]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Lever34/InteractArea" unique_id=337838201]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+shape = SubResource("BoxShape3D_f7rt6")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=265671757]
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=1909034307 groups=["interact_label"]]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "[E]"
+label_settings = SubResource("LabelSettings_t275y")
+horizontal_alignment = 1
+vertical_alignment = 1

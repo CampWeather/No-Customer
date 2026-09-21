@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bbqyretd1vs0a" path="res://scenes/props/Player_Movemment.tscn" id="1_e0cvd"]
 [ext_resource type="PackedScene" uid="uid://glyxae16xq7p" path="res://scenes/props/lever_3_4.tscn" id="2_71baw"]
 [ext_resource type="AudioStream" uid="uid://lk1wsovrqxcn" path="res://assets/audio/ambient_3_4.mp3" id="2_niitk"]
-[ext_resource type="Script" uid="uid://cuvghw0ife1bx" path="res://scripts/level_2_lever.gd" id="3_niitk"]
+[ext_resource type="Script" uid="uid://movjjgqpmdmf" path="res://scripts/interact_lever2.gd" id="4_niitk"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x0myo"]
 albedo_color = Color(0, 0, 0, 1)
@@ -11,10 +11,18 @@ metallic_specular = 0.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_d5djh"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_niitk"]
+
 [sub_resource type="Environment" id="Environment_71baw"]
 ambient_light_color = Color(0.8732984, 0.8732984, 0.8732984, 1)
 ambient_light_energy = 1.5
 volumetric_fog_enabled = true
+
+[sub_resource type="LabelSettings" id="LabelSettings_niitk"]
+font_size = 32
+font_color = Color(0.91852146, 0.90383106, 0.90750253, 1)
+outline_size = 7
+outline_color = Color(0, 0, 0, 1)
 
 [node name="Level2" type="Node3D" unique_id=76309949]
 
@@ -381,14 +389,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.55, 3)
 use_collision = true
 size = Vector3(4, 1, 0.01)
 
-[node name="Start" type="CSGBox3D" parent="." unique_id=1050863494]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.23629522, 0.55050004, 15.389528)
-size = Vector3(0.05, 1, 0.05)
-
-[node name="End" type="CSGBox3D" parent="." unique_id=2122988564]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.2249937, 0.55050004, 9.547619)
-size = Vector3(0.05, 1, 0.05)
-
 [node name="Code2" type="CSGBox3D" parent="." unique_id=1019135706]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.5298986e-07, 0.55, 2.5)
 size = Vector3(1, 1, 0.01)
@@ -396,21 +396,39 @@ size = Vector3(1, 1, 0.01)
 [node name="player_movemment" parent="." unique_id=888094987 instance=ExtResource("1_e0cvd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14087796, 2.5201478, 15.5528)
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="player_movemment" unique_id=1309071252]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.2308955, -1.7041922, -0.22175694)
-stream = ExtResource("2_niitk")
-autoplay = true
-parameters/looping = true
-
 [node name="Lever34" parent="." unique_id=1853224677 instance=ExtResource("2_71baw")]
-transform = Transform3D(-4.371139e-08, 1.0000001, 4.3711395e-08, 0, -4.3711395e-08, 1.0000001, 1, 4.3711392e-08, 1.9106857e-15, -9.474478, 2.096012, 9.173004)
+transform = Transform3D(-1, -8.742279e-08, -3.8213714e-15, 1.5529403e-22, -4.37114e-08, 1.0000001, -8.742278e-08, 1.0000001, 4.37114e-08, 0.82401276, 1.5026636, 8.034469)
+script = ExtResource("4_niitk")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Lever34" unique_id=2009412107]
-script = ExtResource("3_niitk")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Lever34/StaticBody3D" unique_id=44981385]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 shape = SubResource("BoxShape3D_d5djh")
 
+[node name="InteractArea" type="Area3D" parent="Lever34" unique_id=135219205]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Lever34/InteractArea" unique_id=1022355016]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+shape = SubResource("BoxShape3D_niitk")
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=402436787]
 environment = SubResource("Environment_71baw")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1163352057]
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=350426796 groups=["interact_label"]]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "[E]"
+label_settings = SubResource("LabelSettings_niitk")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1023308500]
+stream = ExtResource("2_niitk")
+autoplay = true
+parameters/looping = true
