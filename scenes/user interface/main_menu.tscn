@@ -1,24 +1,22 @@
 [gd_scene format=3 uid="uid://cqvm0lgi4450n"]
 
 [ext_resource type="Script" uid="uid://lbwo6ciugjf5" path="res://scenes/user interface/main_menu.gd" id="1_ugt58"]
-[ext_resource type="Texture2D" uid="uid://dx4log4nr1jss" path="res://assets/textures/background.jpeg" id="1_xui7p"]
 [ext_resource type="FontFile" uid="uid://cngpa5dlv600n" path="res://assets/Font File/Emilys_Candy/EmilysCandy-Regular.ttf" id="2_aiv86"]
+[ext_resource type="Texture2D" uid="uid://cdxysi20h5543" path="res://assets/textures/background_Main_menu.png" id="2_ugt58"]
 [ext_resource type="FontFile" uid="uid://cr1i2l7m8bbdk" path="res://assets/Font File/static/Oswald-Bold.ttf" id="3_aiv86"]
 [ext_resource type="Script" uid="uid://bccv0uonbawqh" path="res://scenes/user interface/label_2.gd" id="4_ugt58"]
 [ext_resource type="FontFile" uid="uid://iujo1f8j1oyq" path="res://assets/Font File/Gorditas/Gorditas-Regular.ttf" id="5_ugt58"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_4kxuq"]
 font = ExtResource("2_aiv86")
-font_size = 48
+font_size = 95
 
 [sub_resource type="LabelSettings" id="LabelSettings_mti6b"]
 line_spacing = 1.0
 paragraph_spacing = 1.0
 font = ExtResource("3_aiv86")
-font_size = 34
+font_size = 51
 font_color = Color(0.6811505, 0.14468026, 0.035508364, 1)
-
-[sub_resource type="Theme" id="Theme_ugt58"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_01pm5"]
 
@@ -44,7 +42,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_xui7p")
+texture = ExtResource("2_ugt58")
+expand_mode = 3
 
 [node name="DarkOverlay" type="ColorRect" parent="." unique_id=1313442933]
 layout_mode = 1
@@ -56,11 +55,11 @@ grow_vertical = 2
 color = Color(3.723037e-05, 3.723037e-05, 3.7230366e-05, 0.56078434)
 
 [node name="Main Container" type="MarginContainer" parent="." unique_id=1499430523]
-layout_mode = 0
+layout_mode = 1
 offset_left = 55.0
 offset_top = 121.0
-offset_right = 320.0
-offset_bottom = 566.0
+offset_right = 536.0
+offset_bottom = 926.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Main Container" unique_id=1379526627]
 layout_mode = 2
@@ -89,13 +88,13 @@ color = Color(0.9201423, 0, 0.29108667, 1)
 [node name="MenuButton" type="MenuButton" parent="Main Container/VBoxContainer" unique_id=1062438303]
 layout_mode = 2
 size_flags_horizontal = 0
-theme = SubResource("Theme_ugt58")
+alignment = 0
 
 [node name="Start_Button" type="Button" parent="Main Container/VBoxContainer/MenuButton" unique_id=1006784418]
 custom_minimum_size = Vector2(260, 40)
 layout_mode = 0
-offset_right = 185.0
-offset_bottom = 36.0
+offset_right = 260.0
+offset_bottom = 40.0
 theme_override_colors/font_color = Color(0.6666667, 0.654902, 0.627451, 1)
 theme_override_colors/font_focus_color = Color(0.77254903, 0.13725491, 0.1764706, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
@@ -103,6 +102,7 @@ theme_override_colors/font_hover_color = Color(0.77254903, 0.13725491, 0.1764706
 theme_override_colors/font_hover_pressed_color = Color(0.6156863, 0.09411765, 0.1254902, 1)
 theme_override_colors/font_disabled_color = Color(0.37254903, 0.3764706, 0.3647059, 1)
 theme_override_fonts/font = ExtResource("5_ugt58")
+theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxEmpty_01pm5")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_q2gq4")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_deitm")
@@ -122,6 +122,7 @@ theme_override_colors/font_hover_color = Color(0.77254903, 0.13725491, 0.1764706
 theme_override_colors/font_hover_pressed_color = Color(0.6156863, 0.09411765, 0.1254902, 1)
 theme_override_colors/font_disabled_color = Color(0.37254903, 0.3764706, 0.3647059, 1)
 theme_override_fonts/font = ExtResource("5_ugt58")
+theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxEmpty_01pm5")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_q2gq4")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_deitm")
@@ -141,6 +142,7 @@ theme_override_colors/font_hover_color = Color(0.77254903, 0.13725491, 0.1764706
 theme_override_colors/font_hover_pressed_color = Color(0.6156863, 0.09411765, 0.1254902, 1)
 theme_override_colors/font_disabled_color = Color(0.37254903, 0.3764706, 0.3647059, 1)
 theme_override_fonts/font = ExtResource("5_ugt58")
+theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxEmpty_01pm5")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_q2gq4")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_deitm")
@@ -160,6 +162,7 @@ theme_override_colors/font_hover_color = Color(0.77254903, 0.13725491, 0.1764706
 theme_override_colors/font_hover_pressed_color = Color(0.6156863, 0.09411765, 0.1254902, 1)
 theme_override_colors/font_disabled_color = Color(0.37254903, 0.3764706, 0.3647059, 1)
 theme_override_fonts/font = ExtResource("5_ugt58")
+theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxEmpty_01pm5")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_q2gq4")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_deitm")

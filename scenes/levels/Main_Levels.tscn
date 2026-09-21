@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dwtk042k56p62" path="res://scenes/levels/main_levels.gd" id="1_s3k60"]
 [ext_resource type="PackedScene" uid="uid://bbqyretd1vs0a" path="res://scenes/props/Player_Movemment.tscn" id="1_sr0l7"]
+[ext_resource type="Material" uid="uid://cx8b5keu58kt" path="res://assets/materials/brick.tres" id="2_gqku5"]
 [ext_resource type="Script" uid="uid://c4xii6t7wgrsd" path="res://scenes/props/NPC/Kasir/kasir.gd" id="3_b1cd1"]
 [ext_resource type="PackedScene" uid="uid://boorvj686cvdy" path="res://assets/models/Kopdes.glb" id="4_6a0be"]
 [ext_resource type="PackedScene" uid="uid://bcu24rnsengsw" path="res://scenes/props/NPC/Kasir/cashier.tscn" id="4_gqku5"]
@@ -22,7 +23,7 @@ glow_enabled = true
 size = Vector3(1, 0.05, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_4kxuq"]
-size = Vector3(30, 0.2, 30)
+size = Vector3(300, 0.2, 300)
 
 [sub_resource type="BoxMesh" id="BoxMesh_mm1bc"]
 size = Vector3(1, 2, 1)
@@ -34,7 +35,7 @@ size = Vector3(1, 3.5, 1)
 
 [node name="Node3D" type="Node3D" unique_id=221139962 node_paths=PackedStringArray("urutan_quest_rak")]
 script = ExtResource("1_s3k60")
-urutan_quest_rak = [NodePath("Susunan Rak/Rak26"), NodePath("Susunan Rak/Rak28"), NodePath("Susunan Rak/Rak33"), NodePath("Susunan Rak/Rak31"), NodePath("Susunan Rak/Rak26")]
+urutan_quest_rak = [NodePath("Susunan Rak/Rak26"), NodePath("Susunan Rak/Rak25"), NodePath("Susunan Rak/Rak"), NodePath("Susunan Rak/Rak31"), NodePath("Susunan Rak/Rak24")]
 
 [node name="Pepohonan" type="CSGCombiner3D" parent="." unique_id=1600125462]
 
@@ -243,8 +244,14 @@ operation = 2
 use_collision = true
 mesh = SubResource("BoxMesh_mti6b")
 
+[node name="Tembok Penghalang" type="CSGMesh3D" parent="." unique_id=1802973244]
+transform = Transform3D(4.561428, 0, 0, 0, 0.9710196, 0, 0, 0, 0.35077018, 5.2137938, 1.858091, 6.20421)
+use_collision = true
+mesh = SubResource("BoxMesh_mti6b")
+material = ExtResource("2_gqku5")
+
 [node name="player_movemment" parent="." unique_id=888094987 instance=ExtResource("1_sr0l7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.198828, 0.9396095, 13.578794)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.795061, 1.6235621, 2.1301868)
 
 [node name="Kasir_NPC" type="Node3D" parent="." unique_id=1258087208]
 transform = Transform3D(0.010619755, 0, -0.9999436, 0, 1, 0, 0.9999436, 0, 0.010619755, 10.256672, 1.1332242, 1.522589)
