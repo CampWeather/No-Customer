@@ -1,13 +1,27 @@
 [gd_scene format=3 uid="uid://dkhshjjmhcp1e"]
 
+[ext_resource type="Texture2D" uid="uid://cyk6bg2cxsjit" path="res://assets/textures/Bricks.jpg" id="1_dywbp"]
 [ext_resource type="PackedScene" uid="uid://bbqyretd1vs0a" path="res://scenes/props/Player_Movemment.tscn" id="1_x6ivy"]
-[ext_resource type="AudioStream" uid="uid://lk1wsovrqxcn" path="res://assets/audio/ambient_3_4.mp3" id="2_bfxgj"]
+[ext_resource type="Material" uid="uid://cx8b5keu58kt" path="res://assets/materials/brick.tres" id="2_2r1tl"]
 [ext_resource type="PackedScene" uid="uid://glyxae16xq7p" path="res://scenes/props/lever_3_4.tscn" id="2_dd0lh"]
+[ext_resource type="Script" uid="uid://cqvm4yicrdc6i" path="res://scripts/fov_adjust.gd" id="3_1seuy"]
 [ext_resource type="Script" uid="uid://cd1tnmxon1nfl" path="res://scripts/interact_lever1.gd" id="4_dywbp"]
+[ext_resource type="AudioStream" uid="uid://bokjtsipwdusc" path="res://assets/audio/loop_ambient.wav" id="7_2r1tl"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x0myo"]
 albedo_color = Color(0, 0, 0, 1)
 metallic_specular = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1eubl"]
+albedo_texture = ExtResource("1_dywbp")
+uv1_scale = Vector3(0.4, 0.4, 0.4)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8a7m2"]
+albedo_texture = ExtResource("1_dywbp")
+uv1_scale = Vector3(1.5, 1.5, 1.5)
+uv1_triplanar = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dywbp"]
 
@@ -18,7 +32,7 @@ ambient_light_color = Color(0.8732984, 0.8732984, 0.8732984, 1)
 ambient_light_energy = 2.0
 volumetric_fog_enabled = true
 
-[sub_resource type="LabelSettings" id="LabelSettings_dywbp"]
+[sub_resource type="LabelSettings" id="LabelSettings_2r1tl"]
 font_size = 32
 font_color = Color(0.91852146, 0.90383106, 0.90750253, 1)
 outline_size = 7
@@ -39,157 +53,179 @@ transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0.55, 0)
 use_collision = true
 size = Vector3(5, 1, 0.01)
+material = SubResource("StandardMaterial3D_1eubl")
 
 [node name="Wall4" type="CSGBox3D" parent="Walls" unique_id=1633399768]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0.55, -6)
 use_collision = true
 size = Vector3(1, 1, 0.01)
+material = SubResource("StandardMaterial3D_1eubl")
 
 [node name="Wall13" type="CSGBox3D" parent="Walls" unique_id=799946458]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0.55, -6)
 use_collision = true
 size = Vector3(1, 1, 0.01)
+material = SubResource("StandardMaterial3D_1eubl")
 
 [node name="Wall16" type="CSGBox3D" parent="Walls" unique_id=1665909067]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.55, -6)
 use_collision = true
 size = Vector3(3, 1, 0.01)
+material = SubResource("StandardMaterial3D_1eubl")
 
 [node name="Wall17" type="CSGBox3D" parent="Walls" unique_id=237910454]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55, -5)
 use_collision = true
 size = Vector3(2, 1, 0.01)
+material = SubResource("StandardMaterial3D_1eubl")
 
 [node name="Wall29" type="CSGBox3D" parent="Walls" unique_id=667485157]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.55, -5)
 use_collision = true
 size = Vector3(2, 1, 0.01)
+material = SubResource("StandardMaterial3D_1eubl")
 
 [node name="Wall19" type="CSGBox3D" parent="Walls" unique_id=1888002869]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.1855694e-08, 0.55, -4.5)
 use_collision = true
 size = Vector3(1, 1, 0.01)
+material = SubResource("StandardMaterial3D_1eubl")
 
 [node name="Wall23" type="CSGBox3D" parent="Walls" unique_id=1710248733]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.556708e-08, 0.55, -1.5)
 use_collision = true
 size = Vector3(1, 1, 0.01)
+material = SubResource("StandardMaterial3D_1eubl")
 
 [node name="Wall22" type="CSGBox3D" parent="Walls" unique_id=1173467233]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.99999994, 0.55, -2.5)
 use_collision = true
 size = Vector3(3, 1, 0.01)
+material = SubResource("StandardMaterial3D_1eubl")
 
 [node name="Wall18" type="CSGBox3D" parent="Walls" unique_id=233577412]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.55, -4)
 use_collision = true
 size = Vector3(3, 1, 0.01)
+material = SubResource("StandardMaterial3D_1eubl")
 
 [node name="Wall21" type="CSGBox3D" parent="Walls" unique_id=582043146]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55, -3)
 use_collision = true
 size = Vector3(2, 1, 0.01)
+material = SubResource("StandardMaterial3D_1eubl")
 
 [node name="Wall28" type="CSGBox3D" parent="Walls" unique_id=1760201556]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0.55, -3)
 use_collision = true
 size = Vector3(1, 1, 0.01)
+material = SubResource("StandardMaterial3D_1eubl")
 
 [node name="Wall24" type="CSGBox3D" parent="Walls" unique_id=1000028437]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.55, -2)
 use_collision = true
 size = Vector3(2, 1, 0.01)
+material = SubResource("StandardMaterial3D_1eubl")
 
 [node name="Wall15" type="CSGBox3D" parent="Walls" unique_id=1367787644]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2, 0.55, -6.5)
 use_collision = true
 size = Vector3(1, 1, 0.01)
+material = SubResource("StandardMaterial3D_1eubl")
 
 [node name="Wall14" type="CSGBox3D" parent="Walls" unique_id=1120211108]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2, 0.55, -3.5)
 use_collision = true
 size = Vector3(7, 1, 0.01)
+material = SubResource("StandardMaterial3D_1eubl")
 
 [node name="Wall12" type="CSGBox3D" parent="Walls" unique_id=1168078441]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.55, -7)
 use_collision = true
 size = Vector3(8, 1, 0.01)
+material = SubResource("StandardMaterial3D_1eubl")
 
 [node name="Wall7" type="CSGBox3D" parent="Walls" unique_id=1860759853]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.55, 0)
 use_collision = true
 size = Vector3(4, 1, 0.01)
+material = ExtResource("2_2r1tl")
 
 [node name="Wall10" type="CSGBox3D" parent="Walls" unique_id=1836753470]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5, 0.55, -0.5)
 use_collision = true
 size = Vector3(3, 1, 0.01)
+material = SubResource("StandardMaterial3D_1eubl")
 
 [node name="Wall3" type="CSGBox3D" parent="Walls" unique_id=1475348323]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6, 0.55, 0.5)
 use_collision = true
 size = Vector3(21, 1, 0.01)
+material = SubResource("StandardMaterial3D_1eubl")
 
 [node name="Wall5" type="CSGBox3D" parent="Walls" unique_id=290449408]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5, 0.55, -0.5)
 use_collision = true
 size = Vector3(1, 1, 0.01)
+material = SubResource("StandardMaterial3D_1eubl")
 
 [node name="Wall11" type="CSGBox3D" parent="Walls" unique_id=491639404]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5, 0.55, -4)
 use_collision = true
 size = Vector3(4, 1, 0.01)
+material = SubResource("StandardMaterial3D_1eubl")
 
 [node name="Wall6" type="CSGBox3D" parent="Walls" unique_id=827392999]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 3.5, 0.55, -0.9999999)
 use_collision = true
 size = Vector3(1, 1, 0.01)
+material = SubResource("StandardMaterial3D_1eubl")
 
 [node name="Wall8" type="CSGBox3D" parent="Walls" unique_id=1588719482]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 1.5, 0.55, -0.9999999)
 use_collision = true
 size = Vector3(1, 1, 0.01)
+material = SubResource("StandardMaterial3D_1eubl")
 
 [node name="Wall9" type="CSGBox3D" parent="Walls" unique_id=1975842332]
 transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 2, 0.55, -1.4999999)
 use_collision = true
 size = Vector3(1, 1, 0.01)
+material = SubResource("StandardMaterial3D_1eubl")
 
 [node name="Wall25" type="CSGBox3D" parent="Walls" unique_id=1736728749]
 transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 3, 0.55, -1.4999999)
 use_collision = true
 size = Vector3(1, 1, 0.01)
+material = SubResource("StandardMaterial3D_1eubl")
 
 [node name="Wall27" type="CSGBox3D" parent="Walls" unique_id=1871969673]
 transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 3, 0.55, -3.5)
 use_collision = true
 size = Vector3(1, 1, 0.01)
+material = SubResource("StandardMaterial3D_1eubl")
 
 [node name="Wall26" type="CSGBox3D" parent="Walls" unique_id=321788274]
 transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 3.9999998, 0.55, -1.4999999)
 use_collision = true
 size = Vector3(5, 1, 0.01)
+material = SubResource("StandardMaterial3D_1eubl")
 
 [node name="Wall20" type="CSGBox3D" parent="Walls" unique_id=1069795422]
 transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 1.9999999, 0.55, -4)
 use_collision = true
 size = Vector3(2, 1, 0.01)
+material = SubResource("StandardMaterial3D_1eubl")
 
 [node name="Wall2" type="CSGBox3D" parent="Walls" unique_id=1192548899]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.55, 1)
 use_collision = true
 size = Vector3(11, 1, 0.01)
-
-[node name="Start" type="CSGBox3D" parent="." unique_id=1050863494]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -13.968402, 0.55050004, 1.3693926)
-size = Vector3(0.05, 1, 0.05)
-
-[node name="End" type="CSGBox3D" parent="." unique_id=2122988564]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 14.120138, 0.55050004, 2.3001118)
-size = Vector3(0.05, 1, 0.05)
+material = SubResource("StandardMaterial3D_8a7m2")
 
 [node name="player_movemment" parent="." unique_id=888094987 instance=ExtResource("1_x6ivy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.04802, 1.1759615, 1.7722354)
+script = ExtResource("3_1seuy")
 
 [node name="Lever34" parent="." unique_id=1853224677 instance=ExtResource("2_dd0lh")]
 transform = Transform3D(-1, -8.742279e-08, -3.8213714e-15, 1.5529403e-22, -4.37114e-08, 1.0000001, -8.742278e-08, 1.0000001, 4.37114e-08, -3.727317, 1.5684907, -20.93074)
@@ -210,20 +246,20 @@ shape = SubResource("BoxShape3D_x0myo")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=728742545]
 environment = SubResource("Environment_dd0lh")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1929131765]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=639699892]
+stream = ExtResource("7_2r1tl")
+volume_db = 8.944
+autoplay = true
 
-[node name="Label" type="Label" parent="CanvasLayer" unique_id=784822839 groups=["interact_label"]]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=283014185]
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=537313085 groups=["interact_label"]]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "[E]"
-label_settings = SubResource("LabelSettings_dywbp")
+label_settings = SubResource("LabelSettings_2r1tl")
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=639699892]
-stream = ExtResource("2_bfxgj")
-autoplay = true
-parameters/looping = true

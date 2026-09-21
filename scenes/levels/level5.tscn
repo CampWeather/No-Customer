@@ -4,13 +4,28 @@
 [ext_resource type="PackedScene" uid="uid://bbqyretd1vs0a" path="res://scenes/props/Player_Movemment.tscn" id="1_467l6"]
 [ext_resource type="Script" uid="uid://cgbhtmu6n3r27" path="res://scripts/moving_wall.gd" id="2_0yael"]
 [ext_resource type="PackedScene" uid="uid://dcugisaqx8ll6" path="res://assets/models/Monster_Running.fbx" id="2_5yen4"]
+[ext_resource type="Texture2D" uid="uid://cyk6bg2cxsjit" path="res://assets/textures/Bricks.jpg" id="2_dju2a"]
 [ext_resource type="Script" uid="uid://bvkn5cm14j5q4" path="res://scripts/monster_running.gd" id="4_37jyc"]
-[ext_resource type="AudioStream" uid="uid://lk1wsovrqxcn" path="res://assets/audio/ambient_3_4.mp3" id="4_qsj6i"]
+[ext_resource type="Script" uid="uid://cqvm4yicrdc6i" path="res://scripts/fov_adjust.gd" id="4_qsj6i"]
 [ext_resource type="Script" uid="uid://cqdvousu6dlq5" path="res://scripts/win_box.gd" id="6_v1pya"]
+[ext_resource type="Texture2D" uid="uid://df62ng2k20hod" path="res://assets/textures/end_screen.jpeg" id="9_lsgss"]
+[ext_resource type="AudioStream" uid="uid://cw6q8lqpub45u" path="res://assets/audio/Iwan Gabovitch - Dark Ambience Loop.mp3" id="9_v0vb7"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x0myo"]
 albedo_color = Color(0, 0, 0, 1)
 metallic_specular = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qsj6i"]
+albedo_texture = ExtResource("2_dju2a")
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dju2a"]
+albedo_texture = ExtResource("2_dju2a")
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v0vb7"]
+albedo_texture = ExtResource("2_dju2a")
+uv1_triplanar = true
 
 [sub_resource type="Environment" id="Environment_x0myo"]
 ambient_light_color = Color(1, 1, 1, 1)
@@ -23,6 +38,8 @@ volumetric_fog_enabled = true
 
 [sub_resource type="LabelSettings" id="LabelSettings_x0myo"]
 font_size = 96
+outline_size = 15
+outline_color = Color(0, 0, 0, 1)
 
 [node name="Level5" type="Node3D" unique_id=76309949]
 script = ExtResource("1_7um5s")
@@ -36,24 +53,28 @@ material = SubResource("StandardMaterial3D_x0myo")
 [node name="Walls" type="Node3D" parent="." unique_id=1890351488]
 
 [node name="Wall3" type="CSGBox3D" parent="Walls" unique_id=1015996490]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.495754, 0.55, 1.9713888)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.495754, 0.8044556, 1.9713888)
 use_collision = true
-size = Vector3(72.17149, 3, 0.01)
+size = Vector3(72.17149, 3.5089111, 0.01)
+material = SubResource("StandardMaterial3D_qsj6i")
 
 [node name="Wall4" type="CSGBox3D" parent="Walls" unique_id=858088204]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.313091, 0.55, 4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.313091, 0.81116945, 4)
 use_collision = true
-size = Vector3(71.80607, 3, 0.01)
+size = Vector3(71.80607, 3.5223389, 0.01)
+material = SubResource("StandardMaterial3D_qsj6i")
 
 [node name="Wall5" type="CSGBox3D" parent="Walls" unique_id=1524685344]
-transform = Transform3D(-8.797688e-08, 0, -1, 0, 2.0800097, 0, 2.0126762, 0, -4.371139e-08, -14.502221, 1.0360833, 2.9924955)
+transform = Transform3D(-8.797688e-08, 0, -1, 0, 2.0800097, 0, 2.0126762, 0, -4.371139e-08, -14.502221, 1.316905, 2.9924955)
 use_collision = true
-size = Vector3(1.0184937, 1, 0.01)
+size = Vector3(1.0184937, 1.2700195, 0.01)
+material = SubResource("StandardMaterial3D_qsj6i")
 
 [node name="Wall6" type="CSGBox3D" parent="Walls" unique_id=1071024851]
-transform = Transform3D(-8.797688e-08, 0, -1, 0, 2.0800097, 0, 2.0126762, 0, -4.371139e-08, 56.835716, 1.0360833, 2.9924955)
+transform = Transform3D(-8.797688e-08, 0, -1, 0, 2.0800097, 0, 2.0126762, 0, -4.371139e-08, 56.835716, 1.7358522, 2.9924955)
 use_collision = true
-size = Vector3(1.0184937, 1, 0.01)
+size = Vector3(1.0184937, 1.6728516, 0.01)
+material = SubResource("StandardMaterial3D_qsj6i")
 
 [node name="Start" type="CSGBox3D" parent="." unique_id=1050863494]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.5317187, 0.55050004, -7.533183)
@@ -67,91 +88,102 @@ size = Vector3(0.05, 1, 0.05)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.73392, 0.27404916, 2.5015628)
 use_collision = true
 size = Vector3(1, 0.5, 1.3712158)
+material = SubResource("StandardMaterial3D_dju2a")
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="." unique_id=1038223492]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1892242, 0.34918344, 3.0744693)
 use_collision = true
 size = Vector3(0.63916016, 0.65026855, 2.5170288)
+material = SubResource("StandardMaterial3D_dju2a")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=558285818]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.589869, 0.27404916, 4.298766)
 use_collision = true
 size = Vector3(1, 0.5, 1)
+material = SubResource("StandardMaterial3D_dju2a")
 
 [node name="CSGBox3D5" type="CSGBox3D" parent="." unique_id=1395568785]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8960037, 0.27404916, 3.7233753)
 use_collision = true
 size = Vector3(1, 0.5, 1.8039551)
+material = SubResource("StandardMaterial3D_dju2a")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="." unique_id=612347512]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3534303, 1.5968024, 2.9785757)
 use_collision = true
 size = Vector3(1, 0.5, 2.973877)
+material = SubResource("StandardMaterial3D_dju2a")
 
 [node name="CSGBox3D6" type="CSGBox3D" parent="." unique_id=739975180]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.495185, 0.34386003, 2.315955)
 use_collision = true
 size = Vector3(1, 0.5, 1)
+material = SubResource("StandardMaterial3D_dju2a")
 
 [node name="CSGBox3D7" type="CSGBox3D" parent="." unique_id=948274738]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.039881, 0.4189943, 3.0744693)
 use_collision = true
 size = Vector3(0.63916016, 0.65026855, 2.5170288)
+material = SubResource("StandardMaterial3D_dju2a")
 
 [node name="CSGBox3D8" type="CSGBox3D" parent="." unique_id=331942665]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.6392365, 0.34386003, 4.298766)
 use_collision = true
 size = Vector3(1, 0.5, 1)
+material = SubResource("StandardMaterial3D_dju2a")
 
 [node name="CSGBox3D9" type="CSGBox3D" parent="." unique_id=1628088475]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.125109, 0.34386003, 3.7233753)
 use_collision = true
 size = Vector3(1, 0.5, 1.8039551)
+material = SubResource("StandardMaterial3D_dju2a")
 
 [node name="CSGBox3D11" type="CSGBox3D" parent="." unique_id=547961826]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.22525, 0.34386003, 3.7233753)
 use_collision = true
 size = Vector3(1, 0.5, 1.8039551)
+material = SubResource("StandardMaterial3D_dju2a")
 
 [node name="CSGBox3D13" type="CSGBox3D" parent="." unique_id=1231721263]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.35618, 0.34386003, 2.3878708)
 use_collision = true
 size = Vector3(1, 0.5, 1.8039551)
+material = SubResource("StandardMaterial3D_dju2a")
 
 [node name="CSGBox3D14" type="CSGBox3D" parent="." unique_id=1866197257]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.821335, 2.000431, 3.091179)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.396828, 2.5293012, 3.091179)
 use_collision = true
-size = Vector3(1, 0.5, 3.2105713)
+size = Vector3(75.23241, 0.15625, 3.2105713)
+material = SubResource("StandardMaterial3D_dju2a")
 
 [node name="CSGBox3D15" type="CSGBox3D" parent="." unique_id=1997505581]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.974876, 2.000431, 3.091179)
 use_collision = true
 size = Vector3(1, 0.5, 3.2105713)
+material = SubResource("StandardMaterial3D_dju2a")
 
 [node name="Moving_Wall" type="CSGBox3D" parent="." unique_id=505951165]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.987152, 0.62037313, 0.22828162)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.987152, 0.9600338, 0.22828162)
 use_collision = true
-size = Vector3(1, 2.8388672, 3.2105713)
+size = Vector3(1, 3.5181885, 3.2105713)
+material = SubResource("StandardMaterial3D_v0vb7")
 script = ExtResource("2_0yael")
 
 [node name="CSGBox3D12" type="CSGBox3D" parent="." unique_id=658246624]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.588278, 0.60502946, 2.9362392)
 use_collision = true
 size = Vector3(1, 1.0223389, 2.7608643)
+material = SubResource("StandardMaterial3D_v0vb7")
 
 [node name="CSGBox3D10" type="CSGBox3D" parent="." unique_id=2131275185]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.875675, 1.6666132, 2.9785757)
 use_collision = true
 size = Vector3(1, 0.5, 2.973877)
+material = SubResource("StandardMaterial3D_v0vb7")
 
 [node name="player_movemment" parent="." unique_id=888094987 groups=["player"] instance=ExtResource("1_467l6")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -12.871527, 1.5826708, 2.886061)
-
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="player_movemment" unique_id=960510650]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.2308955, -1.7041922, -0.22175694)
-stream = ExtResource("4_qsj6i")
-autoplay = true
-parameters/looping = true
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -12.871527, 0.5559069, 2.886061)
+script = ExtResource("4_qsj6i")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1661956588]
 environment = SubResource("Environment_x0myo")
@@ -198,12 +230,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "You Escaped!"
+text = "To be continued.."
 label_settings = SubResource("LabelSettings_x0myo")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ColorRect" type="ColorRect" parent="Control/Label" unique_id=559856683]
+[node name="TextureRect" type="TextureRect" parent="Control/Label" unique_id=1751706008]
 z_index = -1
 layout_mode = 1
 anchors_preset = 15
@@ -211,4 +243,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.18359044, 0.18359044, 0.18359044, 1)
+texture = ExtResource("9_lsgss")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1947961750]
+stream = ExtResource("9_v0vb7")

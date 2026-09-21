@@ -4,6 +4,7 @@ extends Node3D
 @onready var monster_run_box = $"MonsterRunBox"
 @onready var animator: AnimationPlayer = $"Monster_Running/AnimationPlayer"
 @onready var wall_closing = $"Moving_Wall"
+@onready var audio = $AudioStreamPlayer2D
 
 var debounce = false
 
@@ -16,3 +17,4 @@ func _on_monster_run_box_body(body) -> void:
 		print("Hello!")
 		monster.start_running()
 		wall_closing.start_closing()
+		audio.play()
